@@ -9,16 +9,39 @@
 
 <body>
     <?php
-    $a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    foreach ($a as $number) {
-        echo $number * 2 . "<br>";
-    }
-    foreach ($a as $number) {
-        if ($number % 2 == 0) {
-            echo $number . "<br>";
+    // task 1 
+    $i = 0;
+    while ($i <= 10) {
+        if ($i < 10) {
+            echo $i . "-";
+        } else {
+            echo $i . "<br>";
         }
-        echo "<br>";
+        $i++;
     }
+    // task 2
+    $numbers = [1, 1, 2, 1, 2, 3, 6, 7, 7, 4, 5, 5]; //  number = 2
+    $filterSortNumbers = []; // 1  , 1 , 2 , 1 
+
+    foreach ($numbers as $number) { // 2
+        $found = false;
+        foreach ($filterSortNumbers as $filterSortNumber) { // 
+            if ($filterSortNumber = $number) { // number = 2 || 1 == 2 ? 1 == 2? 2==2 ? found = true || break 
+                $found = true;
+                break;
+            }
+        }
+        if ($found == false) {
+            $filterSortNumbers[] = $number;
+        }
+    }
+    sort($filterSortNumbers);
+
+    // task 3 
+    for ($i=0; $i < count($numbers) ; $i++) { 
+        echo $i . "<br>";
+    }
+
     ?>
 </body>
 
