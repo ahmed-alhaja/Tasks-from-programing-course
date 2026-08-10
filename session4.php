@@ -9,16 +9,7 @@
 
 <body>
     <?php
-    $a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    foreach ($a as $number) {
-        echo $number * 2 . "<br>";
-    }
-    foreach ($a as $number) {
-        if ($number % 2 == 0) {
-            echo $number . "<br>";
-        }
-        echo "<br>";
-    }
+   
     ?>
 </body>
 
