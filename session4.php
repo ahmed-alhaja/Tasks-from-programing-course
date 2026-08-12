@@ -127,6 +127,69 @@
         $factorial *= $i;
     }
     echo $factorial;
+
+    // task 9
+    $i = 1;
+    while ($i <= 15) {
+        if ($i % 2 != 0) {
+            echo $i . "<br>";
+        }
+
+        $i++;
+    }
+    // task 10
+    $i = 1;
+    while ($i <= 15) {
+        if ($i % 2 == 0) {
+            echo $i . "<br>";
+        }
+
+        $i++;
+    }
+    // task 11
+    $person = array(
+        "name" => "John",
+        "age" => 30,
+        "city" => "New York"
+    );
+    foreach ($person as $key => $value) {
+        echo $key . ' ' . $value . '<br>';
+    }
+    // task 12 
+    $sales = [
+        "Jan" => 100,
+        "Feb" => 200,
+        "Mar" => 150
+    ];
+    $sum = 0;
+    foreach ($sales as $sale => $num) {
+        $sum += $num;
+    }
+    echo $sum . "<br>";
+    // task 13
+    for ($i = 1; $i <= 10; $i++) {
+        echo 8 . ' * ' . $i . ' = ' . (8 * $i) . '<br>';
+    }
+    // task 14
+    $students = array(
+        array("name" => "John", "age" => 20, "grade" => "A"),
+        array("name" => "Mary", "age" => 22, "grade" => "B"),
+        array("name" => "Tom", "age" => 18, "grade" => "A")
+    );
+    foreach ($students as $student) {
+        foreach ($student as $key => $value) {
+            echo $key . ' ' . $value . '<br>';
+        }
+    }
+    // task 15
+    $i = 1;
+    do {
+        if ($i % 3 == 0) {
+            echo "This is a num: $i <br>";
+        }
+
+        $i++;
+    } while ($i <= 100);
     ?>
 </body>
 
