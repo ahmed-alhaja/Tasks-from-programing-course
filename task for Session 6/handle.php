@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
@@ -8,9 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = trim($_POST['phone']);
 
     vaildateEmployee($name, $email, $password, $phone);
-
 }
-$errors = [];
+
 function validateRequired($value, $fieldName)
 {
     global $errors;
@@ -23,7 +23,7 @@ function validateRequired($value, $fieldName)
 function validateEmail($email, $fieldName)
 {
     global $errors;
-    if (!filter_var($email,  FILTER_VALIDATE_EMAIL) ) {
+    if (!filter_var($email,  FILTER_VALIDATE_EMAIL)) {
         $errors[$fieldName] = "This $fieldName is required.";
     } else {
         return null;
@@ -54,7 +54,7 @@ function vaildateEmployee($name, $email, $password, $phone)
         'phone' => $phone,
     ];
     foreach ($fileds as $fieldName => $value) {
-        validateRequired($value , $fieldName);
+        validateRequired($value, $fieldName);
     }
 }
 if (!empty($errors)) {
