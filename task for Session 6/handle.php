@@ -8,6 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password']);
     $phone = trim($_POST['phone']);
 
+    validateEmail($email, 'email');
+    vaildatePass($password, 'password');
     vaildateEmployee($name, $email, $password, $phone);
 }
 
@@ -25,8 +27,6 @@ function validateEmail($email, $fieldName)
     global $errors;
     if (!filter_var($email,  FILTER_VALIDATE_EMAIL)) {
         $errors[$fieldName] = "This $fieldName is required.";
-    } else {
-        return null;
     }
 }
 function vaildatePass($value, $fieldName)
@@ -38,19 +38,12 @@ function vaildatePass($value, $fieldName)
         return null;
     }
 }
-// validateRequired($_POST['name'], "name");
-// validateRequired($_POST['email'], "email");
-// validateRequired($_POST['phone'], "phone");  
-// validateRequired($_POST['password'], "password");
-validateEmail($_POST['email'], 'email');
-vaildatePass($_POST['password'], 'password');
-
 function vaildateEmployee($name, $email, $password, $phone)
 {
     $fileds = [
         'name' => $name,
         'email' => $email,
-        'password' => $password,
+        'password' => password_hash($password, PASSWORD_DEFAULT),
         'phone' => $phone,
     ];
     foreach ($fileds as $fieldName => $value) {
